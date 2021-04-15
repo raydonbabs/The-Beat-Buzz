@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Beat Buzz</title>
+    <link rel = "icon" href = "media/helixwave.svg">
+    <link rel="stylesheet" href="Ascension.css">
+    <link rel="stylesheet" href="quoteStyle.css">
+    <script src="quoteGeneration.js"></script>
+</head>
+
+<body onload = "getQuote('motivational')">
+
+  <section class="showcase"> 
+    <header>
+      <h1 class="logo"></h1>
+      <div ="toggle"></div>
+      <h2>ASCEND</h2>
+    </header>
+    
+    <video id ="vid" src="media/ascension.mp4" muted loop autoplay></video>
+     
+    <div id = "foreground">
+      <div id="quote"></div>      
+      <!--<input type="image" id ="playAudio" align="center" src="media/play.svg" onclick = "play()"></input>;-->
+
+      <div align = "center" class = "text">
+        <button id="playAudio" style="font-family: century gothic">Play</button>
+      </div>
+    </div>
+
+    <audio id="mySong">
+      <source src="media/Ascension.mp3" type="audio/mp3">
+    </audio>
+
+    <ul class="social">
+        <li><a href="#"><img src="https://i.ibb.co/x7P24fL/facebook.png"></a></li>
+      <li><a href="#"><img src="https://i.ibb.co/Wnxq2Nq/twitter.png"></a></li>
+      <li><a href="#"><img src="https://i.ibb.co/ySwtH4B/instagram.png"></a></li>
+    </ul>
+      
+     <div class="menu-wrap" id = "menuButton" onclick = "menuToggle()">
+      <input type="checkbox" class="toggler"></input>
+        <div class="hamburger" onclick = "menuToggle(1)"><div>
+    </div>
+    </div>
+    <div class="menu">
+            <div>
+              <div>
+                <ul>
+                  <li><a href="index.html"><b>HOME</b></a></li>
+                  <li><a href="AllNighter.html"><b>ALL NIGHTER</b></a></li>
+                  <li><a href="RoadTrip.html"><b>ROAD TRIP</b></a></li>
+                  <li><a href="BackyardJam.html"><b>BACKYARD JAM</b></a></li>
+                  <li><a href="Ascension.html"><b>ASCENSION</b></a><li>
+                </ul>
+              </div>
+            </div>
+      </div>
+
+    <script>
+    
+      document.getElementById("playAudio").addEventListener("click", function(){
+      var audio = document.getElementById('mySong');
+      if(this.className == 'is-playing'){
+      this.className = "";
+      this.innerHTML = "Play"
+      audio.pause();
+      }else{
+      this.className = "is-playing";
+      this.innerHTML = "Pause";
+      audio.play();
+      }
+      });
+    
+
+    let state = 0;
+
+    function menuToggle()
+    {
+      var area
+      var area2;
+
+      if(state == 0)
+      {
+        area = document.querySelector('#foreground');
+        area.style.display = "none";
+
+        const area2 = document.querySelector('#vid');
+        area2.outerHTML = '<video id ="vid" style="filter: blur(20px)" src="media/ascension.mp4" muted loop autoplay></video>';
+
+        state = 1;
+      }
+      else if(state == 1)
+      {
+        area = document.querySelector('#foreground');
+        area.style.display = "block";
+
+        area2 = document.querySelector('#vid');
+        area2.outerHTML = '<video id ="vid" src="media/ascension.mp4" muted loop autoplay></video>';
+
+        state = 0;
+      }
+    }
+
+   </script>
+
+
+  </section>
+    
+</body>
+</html>
